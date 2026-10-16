@@ -9,4 +9,4 @@
 - 37テスト成功、TypeScript/Viteビルド成功、架空データ入りSQLite復元実証。
 
 DBスキーマの変更はありません。0001は維持。v0.1のDBをそのまま使用できます。
-PostgreSQL・Docker・Windows・ブラウザE2E/視覚QA・実OpenAI接続は未検証。完成判定は保留しています。GitHubでソースを公開し、CIでの追加検証を進めます。
+GitHubへソース公開済み。PostgreSQL 17の初期移行・APIテストとChromium E2E 2シナリオは[CI成功](https://github.com/remanpso2-wq/relay-desk/actions/runs/38886416030)。Docker・Windows・視覚QA・実OpenAI接続は未検証で、完成判定は保留しています。

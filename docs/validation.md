@@ -10,10 +10,10 @@
 | npm audit | 検査時点で既知脆弱性0件 | results/npm-audit.json |
 | pip-audit | 固定した実行依存で検査時点0件 | results/python-audit.json。lockの列挙依存、--no-deps --disable-pip |
 | OpenAPI | 現在のアプリから生成 | openapi.json |
-| PostgreSQL実DB | 未実行 | パッケージ導入を試行したが、環境のsetgroups/setuid権限制約で失敗。CI定義あり。SQLite成功で代替しない |
+| PostgreSQL実DB | CI成功 | PostgreSQL 17サービスにAlembic初期移行後、test_workflow.py・test_provider.py・test_retrieval_eval.pyを実行。[実行結果](https://github.com/remanpso2-wq/relay-desk/actions/runs/38886416030)。ローカルへの導入は環境制約で不可だったが、CI実DBで確認 |
 | Docker Compose | 未実行 | Dockerfile・Compose定義のみ |
 | Windows | 未実行 | PowerShell向け手順あり |
-| E2E | 未実行 | Playwright 2シナリオのテスト一覧読み込みは成功。ブラウザ実行・CIは未実施 |
+| E2E | Chromium 2シナリオ成功 | 生成→編集→承認→再読み込み、担当者の表示権限、390px幅での横溢れ、ログアウト。[実行結果](https://github.com/remanpso2-wq/relay-desk/actions/runs/38886416030)。AIはdemoモード |
 | 視覚QA | 未実施 | 対応するブラウザ制御環境が利用できず実施不可。レスポンシブCSSの実装とビルド成功のみ |
 | 実OpenAI API | 未実行 | モックHTTPでスキーマ・引用・失敗経路を検証。実キーなし |
 | GitHub公開 | ソース公開 | https://github.com/remanpso2-wq/relay-desk |
@@ -32,4 +32,6 @@ Starlette TestClientのhttpx利用に非推奨警告が1件。テストは成功
 5. 390px/1440px幅、キーボード、フォーカス、長文表示、エラー回復。
 6. PostgreSQLでも同じ拒否ケースと二重操作を検証する。
 
-これらの未検証項目が残っているため、v0.2は「機能拡張・SQLite検証版」と位置づける。
+上記は受入観点で、CIが確認した範囲は表に記載しています。視覚QA、実AI品質、Docker/Windowsなどの未検証項目が残るため、商用運用や公開サービスの完成判定はしていません。
+
+CI成功時のコード: `961e6a0ebcdcff83e791808b70d50cc48b32d31b`。後続の文書更新と区別して記録します。

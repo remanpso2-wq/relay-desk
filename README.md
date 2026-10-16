@@ -1,5 +1,7 @@
 # RELAY Desk
 
+[![relay-quality](https://github.com/remanpso2-wq/relay-desk/actions/workflows/ci.yml/badge.svg)](https://github.com/remanpso2-wq/relay-desk/actions/workflows/ci.yml)
+
 **問い合わせと根拠をつなぐ、AI返信レビューのワークスペース。**
 
 React / TypeScript + FastAPI / SQLAlchemy のポートフォリオ用Webアプリです。
@@ -110,7 +112,7 @@ DBユーザーは簡易開発構成の所有者です。本番用の非特権ラ
 4. `docker compose exec app python -m app.seed`
 5. `http://localhost:8000` を開く。
 
-Compose・PostgreSQL実DBは本作では未検証です。NAVILOGでの成功結果を本作の合格証拠には使っていません。
+PostgreSQL 17実DBでの初期マイグレーションとAPIテストはGitHub Actionsで成功しています。Compose自体は未検証です。
 
 ## テスト
 
@@ -119,12 +121,12 @@ cd backend
 python -m pytest -q
 cd ../frontend
 npm run build
-# 以下は対応するブラウザ環境で実行（本作では未実行）
+# 以下は対応するブラウザ環境で実行（GitHub ActionsのChromiumで2シナリオ成功）
 npx playwright install chromium
 npm run test:e2e
 ```
 
-GitHub ActionsにはSQLite、PostgreSQL実DB、フロントエンドビルド、E2Eのジョブを用意しました。
+GitHub ActionsでSQLite、PostgreSQL 17実DB、フロントエンドビルド、Chromium E2E 2シナリオが成功しました（[実行結果](https://github.com/remanpso2-wq/relay-desk/actions/runs/38886416030)）。実AI接続・視覚QA・Docker/Windows・公開デモの検証は未実施です。
 CIの実行状況は [GitHub Actions](https://github.com/remanpso2-wq/relay-desk/actions) で確認できます。PostgreSQLテストは使い捨ての `TEST_DATABASE_URL` のテーブルをTRUNCATEするため、実データのDBを指定しないでください。
 検証結果は [docs/validation.md](docs/validation.md)、設計は [docs/architecture.md](docs/architecture.md) を参照。
 
@@ -134,7 +136,7 @@ CIの実行状況は [GitHub Actions](https://github.com/remanpso2-wq/relay-desk
 - `backend/migrations`: 固定した初期スキーマとAlembic
 - `backend/tests`: API、認可、外部AI境界、マイグレーション
 - `frontend/src`: React / TypeScript画面
-- `frontend/e2e`: Playwright操作シナリオ（未実行）
+- `frontend/e2e`: Playwright操作シナリオ（Chromiumで2件成功）
 - `docs`: 設計、検証結果、次の開発項目、OpenAPI
 
 ソース公開用ライセンスは未選定です。第三者依存のライセンスは各パッケージに従います。
