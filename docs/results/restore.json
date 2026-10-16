@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "tables": {
+    "alembic_version": {
+      "rows": 1,
+      "sha256": "47ab543e06ca8d91c77f1992393622c7bbcff63b8f7d80ac22c3ed3620b496c1"
+    },
+    "article_revisions": {
+      "rows": 4,
+      "sha256": "04f71af0780b8713f769c48647aaf9f4f9968cd38522a3180d3eec71187e3bec"
+    },
+    "articles": {
+      "rows": 4,
+      "sha256": "b66bd175be4ac6ec995260f32785e3adf70d3e67a7870b1084aa62d8009ca4cf"
+    },
+    "audit": {
+      "rows": 2,
+      "sha256": "126759fb4a3dc837a1291bbe65b5233ea4596ffb3d0cb283e084fe69c19a04f2"
+    },
+    "drafts": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "login_attempts": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sessions": {
+      "rows": 1,
+      "sha256": "a7740fa7b469261d2d4205c5231878b5adf9bd316289db585d67b99938831b04"
+    },
+    "tenants": {
+      "rows": 1,
+      "sha256": "25c3c3c99f3460defbfab0e7a21f2925210ae8c67c903d9574cc6698bffc94ec"
+    },
+    "tickets": {
+      "rows": 5,
+      "sha256": "b1a570fb0e6a2676cc60dbf02be6c562b3fcfea58a05d4b0efba6271ceabc44b"
+    },
+    "users": {
+      "rows": 3,
+      "sha256": "9b0bb4eb242d31bf6831bad551fce7ef4c554093f724aba50a373fa0c9d716f2"
+    }
+  },
+  "scope": "SQLite consistent snapshot and restore; no PostgreSQL claim"
+}

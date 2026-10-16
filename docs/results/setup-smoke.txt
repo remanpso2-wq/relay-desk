@@ -1,0 +1,1 @@
+v0.2 PASS: Alembic initialization, fictional seed, login, 5 tickets, 4 articles, built index.html served via ASGI TestClient. No live browser/HTTP server used.
